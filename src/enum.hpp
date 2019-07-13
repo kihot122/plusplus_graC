@@ -2,6 +2,6 @@
 
 enum
 {
-    CELL_EMPTY = 0,
-    CELL_WALL = 1,
+    CELL_EMPTY,
+    CELL_WALL,
 };
