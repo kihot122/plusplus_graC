@@ -1,4 +1,4 @@
-/*#include "window.hpp"
+#include "window.hpp"
 
 c_window::c_window()
 	:window(sf::VideoMode(Width, Height), "test_window", sf::Style::Default)
@@ -20,4 +20,9 @@ void c_window::run()
 
 		window.display();
 	}
-}*/
+}
+
+void c_window::draw(sf::RenderTarget& target, sf::RenderStates state) const
+{
+	
+}

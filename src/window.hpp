@@ -1,6 +1,6 @@
-/*#include "SFML/Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
-#include <iostream>
+
 
 class c_window :public sf::Drawable
 {
@@ -18,4 +18,4 @@ public:
 
 	void run();
 
-};*/
+};

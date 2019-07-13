@@ -1,3 +1,4 @@
+/*
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -22,11 +23,10 @@ int main()
 
 	return 0;
 }
+*/
 
 
-
-/*#include <iostream>
-
+#include <iostream>
 #include "window.hpp"
 
 int main()
@@ -40,4 +40,4 @@ int main()
 	getchar();
 
     return 0;
-}*/
+}
