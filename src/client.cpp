@@ -29,15 +29,15 @@ int main()
 #include <iostream>
 #include "window.hpp"
 
+const int Width = 1200;
+const int Height = 800;
+
 int main()
 {
-	c_window window;
+	c_window window(Width,Height);
 
 	window.run();
 
-	std::cout << "sdddddddfsdgfdsgf";
-
-	getchar();
 
     return 0;
 }
