@@ -1,5 +1,7 @@
 #define glowa ogon[0];
 
+#include "enum.hpp"
+
 class c_Snake
 {
 private:
@@ -18,7 +20,7 @@ public:
 
     c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_kierunek, int start_dlugosc = 3);
     ~c_Snake();
-    void move(int kierunek, int pole = puste);
+    void move(int kierunek = obecny_kierunek, int pole = CELL_EMPTY);
 
 };
 
@@ -31,7 +33,7 @@ c_Snake::c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_k
     *ogon = new c_Cell[ilosc_pustych_pol];
     glowa.X = start_x;
     glowa.Y = start_y;
-    glowa.typ = sciana;
+    glowa.typ = CELL_WALL;
     glowa.kolor = kolor_gracza;
 
     
@@ -41,7 +43,7 @@ c_Snake::c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_k
             for(int i = 1; i < start_dlugosc; i++){
                 ogon[i].X = ogon[i-1].X + 1;
                 ogon[i].Y = ogon[i-1].Y;
-                ogon[i].typ = sciana;
+                ogon[i].typ = CELL_WALL;
                 ogon[i].kolor = kolor_gracza;
             }
             break;
@@ -50,7 +52,7 @@ c_Snake::c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_k
         for(int i = 1; i < start_dlugosc; i++){
                 ogon[i].X = ogon[i-1].X - 1;
                 ogon[i].Y = ogon[i-1].Y;
-                ogon[i].typ = sciana;
+                ogon[i].typ = CELL_WALL;
                 ogon[i].kolor = kolor_gracza;
             }
             break;
@@ -59,7 +61,7 @@ c_Snake::c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_k
             for(int i = 1; i < start_dlugosc; i++){
                 ogon[i].X = ogon[i-1].X;
                 ogon[i].Y = ogon[i-1].Y + 1;
-                ogon[i].typ = sciana;
+                ogon[i].typ = CELL_WALL;
                 ogon[i].kolor = kolor_gracza;
             }
             break;
@@ -68,7 +70,7 @@ c_Snake::c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_k
             for(int i = 1; i < start_dlugosc; i++){
                 ogon[i].X = ogon[i-1].X;
                 ogon[i].Y = ogon[i-1].Y - 1;
-                ogon[i].typ = sciana;
+                ogon[i].typ = CELL_WALL;
                 ogon[i].kolor = kolor_gracza;
             }
             break;
@@ -82,13 +84,13 @@ c_Snake::~c_Snake()
 {
     for (int i = 0; i < obecna_dlugosc; i++)
     {
-        //ogon[i].typ = puste;
+        //ogon[i].typ = CELL_EMPTY;
     }
     
     
 }
 
-void c_Snake::move(int kierunek = obecny_kierunek, int pole = puste){
+void c_Snake::move(int kierunek = obecny_kierunek, int pole = CELL_EMPTY){
 
     for(int i = obecna_dlugosc; i > 0; i--){
         /*
@@ -96,19 +98,19 @@ void c_Snake::move(int kierunek = obecny_kierunek, int pole = puste){
         */
     }
 
-    if (pole == sciana)
+    if (pole == CELL_WALL)
     {
         c_Snake::~c_Snake();
         return; //nie wiem czy to działa tak jak myśle, że to działa 
     }
 
-    if(pole == owoc)
+    if(pole == CELL_FRUIT)
     {
         obecna_dlugosc++;
     }
     else
     {
-        //ogon[obecna_dlugosc].typ = puste;
+        //ogon[obecna_dlugosc].typ = CELL_EMPTY;
     }
 
     switch (kierunek)
