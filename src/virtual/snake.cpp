@@ -18,7 +18,7 @@ public:
 
     c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_kierunek, int start_dlugosc = 3);
     ~c_Snake();
-    move(int kierunek, int pole = puste);
+    void move(int kierunek, int pole = puste);
 
 };
 
@@ -88,7 +88,7 @@ c_Snake::~c_Snake()
     
 }
 
-c_Snake::move(int kierunek = obecny_kierunek, int pole = puste){
+void c_Snake::move(int kierunek = obecny_kierunek, int pole = puste){
 
     for(int i = obecna_dlugosc; i > 0; i--){
         /*
@@ -98,7 +98,7 @@ c_Snake::move(int kierunek = obecny_kierunek, int pole = puste){
 
     if (pole == sciana)
     {
-        Snake.~Snake();
+        c_Snake::~c_Snake();
         return; //nie wiem czy to działa tak jak myśle, że to działa 
     }
 
