@@ -11,25 +11,28 @@ public:
 	c_Cell(){}
 };
 
-struct c_Fruit : public c_Cell
+class c_Fruit : public c_Cell
 {
 	uint8_t Cal;
 public:
-	c_Fruit(uint8_t _Cal);
+	c_Fruit(uint8_t Cal);
 	void Spawn(uint8_t* args, uint8_t len);
 	uint8_t GetCalorie() { return Cal; }
 };
 
-struct c_Wall : public c_Cell
+class c_Wall : public c_Cell
 {
-	c_Wall() { ID = CELL_WALL; }
+	uint8_t Color;
 public:
+	c_Wall(uint8_t Color);
+	void Spawn(uint8_t* args, uint8_t len);
+	uint8_t GetColor() { return Color; }
+};
+
+class c_Empty : public c_Cell
+{
+public:
+	c_Empty() { ID = CELL_EMPTY; }
 	void Spawn(uint8_t* args, uint8_t len);
 };
 
-struct c_Empty : public c_Cell
-{
-	c_Empty(){ ID = CELL_EMPTY; }
-public:
-	void Spawn(uint8_t* args, uint8_t len);
-};

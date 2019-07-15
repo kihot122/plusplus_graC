@@ -1,6 +1,6 @@
 #include "map.hpp"
 
-c_Map::c_Map(uint16_t SizeX, uint16_t SizeY) : SizeX(SizeX), SizeY(SizeY)
+c_Map::c_Map(uint16_t SizeX, uint16_t SizeY) : Size{SizeX, SizeY}
 {
 	Grid = new c_Cell **[SizeX];
 	for (int i = 0; i < SizeX; i++)
