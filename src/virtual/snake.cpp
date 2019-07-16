@@ -82,7 +82,7 @@ void c_Snake::Move(uint16_t kierunek = NULL){
         break;
     }
 
-    switch ((playground->GetCell(next_Cell.X,next_Cell.Y)).GetID())
+    switch ((playground->GetCell(next_Cell.X,next_Cell.Y))->GetID())
     {
     case CELL_EMPTY:
         playground->SetCell(next_Cell.X,next_Cell.Y,new c_Wall(player_color));
