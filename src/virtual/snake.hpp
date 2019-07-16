@@ -1,27 +1,24 @@
 #pragma once
 
 #include "enum.hpp"
+#include "../cell/cell.hpp"
+#include <deque>
+#include "../cell/map.hpp"
+
+struct position{
+    int X,Y;
+};
 
 class c_Snake
 {
 private:
+    bool alive = true;
     int obecny_kierunek;
-    int obecna_dlugosc;
-    //c_Cell = *ogon;
+    int player_color;
+    c_Map *playground;
+    std::deque<position> tail;
 public:
-    c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_kierunek, int start_dlugosc = 3);
+    c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_kierunek, c_Map *mapa, int start_dlugosc);
     ~c_Snake();
-    void move(int kierunek, int pole = CELL_EMPTY);
+    void Move(int kierunek);
 };
-
-c_Snake::c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_kierunek, int start_dlugosc = 3)
-{
-}
-
-c_Snake::~c_Snake()
-{
-}
-
-void c_Snake::move(int kierunek, int pole = CELL_EMPTY)
-{
-}
