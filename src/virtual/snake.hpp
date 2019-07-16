@@ -6,19 +6,19 @@
 #include "../cell/map.hpp"
 
 struct position{
-    int X,Y;
+    uint16_t X,Y;
 };
 
 class c_Snake
 {
 private:
     bool alive = true;
-    int obecny_kierunek;
-    int player_color;
+    uint16_t obecny_kierunek;
+    uint16_t player_color;
     c_Map *playground;
     std::deque<position> tail;
 public:
-    c_Snake(int ilosc_pustych_pol, int start_x, int start_y, int startowy_kierunek, c_Map *mapa, int start_dlugosc);
+    c_Snake(uint16_t ilosc_pustych_pol, uint16_t start_x, uint16_t start_y, uint16_t startowy_kierunek, c_Map *mapa, uint16_t start_dlugosc);
     ~c_Snake();
-    void Move(int kierunek);
+    void Move(uint16_t kierunek);
 };

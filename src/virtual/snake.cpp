@@ -1,7 +1,7 @@
 #include "enum.hpp"
 #include "snake.hpp"
 
-c_Snake::c_Snake(int color, int start_x, int start_y, int startowy_kierunek, c_Map *mapa, int start_dlugosc = 3)
+c_Snake::c_Snake(uint16_t color, uint16_t start_x, uint16_t start_y, uint16_t startowy_kierunek, c_Map *mapa, uint16_t start_dlugosc = 3)
 {
     obecny_kierunek = startowy_kierunek;
     playground = mapa; 
@@ -10,28 +10,28 @@ c_Snake::c_Snake(int color, int start_x, int start_y, int startowy_kierunek, c_M
     switch (startowy_kierunek)
     {
     case lewo:
-        for (int i = 0; i < start_dlugosc; i++)
+        for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x + i, start_y});
         }
         break;
     
     case prawo:
-        for (int i = 0; i < start_dlugosc; i++)
+        for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x - i, start_y});
         }
         break;
         
     case gora:
-        for (int i = 0; i < start_dlugosc; i++)
+        for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x,start_y-i});
         }
         break;
 
     case dol:
-        for (int i = 0; i < start_dlugosc; i++)
+        for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x,start_y+i});
         }
@@ -60,7 +60,7 @@ c_Snake::~c_Snake()
     
 }
 
-void c_Snake::Move(int kierunek = NULL){
+void c_Snake::Move(uint16_t kierunek = NULL){
 
     if(!kierunek) kierunek=obecny_kierunek;
 
