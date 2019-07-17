@@ -13,3 +13,5 @@ c_Wall::c_Wall(uint8_t Color) : Color(Color)
 void c_Fruit::Spawn(uint8_t* args, uint8_t len){}
 void c_Wall::Spawn(uint8_t *argc, uint8_t len){}
 void c_Empty::Spawn(uint8_t* argc, uint8_t len){}
+void c_SnakeBody::Spawn(uint8_t* args, uint8_t len) {}
+void c_SnakeTail::Spawn(uint8_t* args, uint8_t len) {}

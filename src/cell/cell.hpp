@@ -39,3 +39,17 @@ public:
 	void Spawn(uint8_t* args, uint8_t len);
 };
 
+class c_SnakeHead : public c_Cell
+{
+public:
+	c_SnakeHead() { ID = CELL_SNAKE_HEAD; }
+	void Spawn(uint8_t* args, uint8_t len);
+};
+
+class c_SnakeTail: public c_Cell
+{
+public:
+	c_SnakeTail() { ID = CELL_SNAKE_TAIL; }
+	void Spawn(uint8_t* args, uint8_t len);
+};
+
