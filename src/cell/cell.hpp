@@ -2,8 +2,9 @@
 
 #include <cstdint>
 #include "../enum.hpp"
+#include "../SFML/Graphics.hpp"
 
-class c_Cell
+class c_Cell : public sf::Drawable
 {
 protected:
 	uint16_t ID;
