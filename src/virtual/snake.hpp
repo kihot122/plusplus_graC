@@ -18,7 +18,7 @@ private:
     c_Map *playground;
     std::deque<position> tail;
 public:
-    c_Snake(uint16_t ilosc_pustych_pol, uint16_t start_x, uint16_t start_y, uint16_t startowy_kierunek, c_Map *mapa, uint16_t start_dlugosc);
+    c_Snake(uint16_t color, uint16_t start_x, uint16_t start_y, uint16_t startowy_kierunek, c_Map *mapa, uint16_t start_dlugosc);
     ~c_Snake();
     void Move(uint16_t kierunek);
 };
