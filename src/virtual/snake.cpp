@@ -147,5 +147,5 @@ void c_Snake::Move(uint16_t kierunek){
 
 void c_Snake::MakeHead()
 {
-    playground->SetCell(tail.front.X,tail.front.Y,new c_SnakeHead);
+    playground->SetCell(tail[0].X,tail[0].Y,new c_SnakeHead);
 }
