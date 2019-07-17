@@ -87,6 +87,7 @@ void c_Snake::Move(uint16_t kierunek = NULL){
     case CELL_EMPTY:
         playground->SetCell(next_Cell.X,next_Cell.Y,new c_Wall(player_color));
         tail.push_front(next_Cell);
+        playground->SetCell(tail.back().X,tail.back().Y,new c_Empty());
         tail.pop_back();
         break;
     
