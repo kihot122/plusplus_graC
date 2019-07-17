@@ -3,7 +3,7 @@
 #include <cstdint>
 #include "../enum.hpp"
 
-class c_Cell
+class c_Cell 
 {
 protected:
 	uint16_t ID;
