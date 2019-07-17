@@ -68,16 +68,16 @@ void c_Snake::Move(uint16_t kierunek = NULL){
 
     switch (kierunek)
     {
-    case lewo:
+    case LEFT:
         next_Cell.X--;
         break;
-    case prawo:
+    case RIGHT:
         next_Cell.X++;
         break;
-    case gora:
+    case UP:
         next_Cell.Y++;
         break;
-    case dol:
+    case DOWN:
         next_Cell.Y--;
         break;
     }
