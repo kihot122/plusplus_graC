@@ -10,11 +10,10 @@ int main()
 
 	window.run();
 
-	c_Map Map(20, 20);
-	c_Snake Snake(1, 5, 5, UP, &Map, 3);
+	c_Snake Snake(1, 5, 5, UP, &map, 3);
 	while (true)
 	{
-		Snake.Move();
+		//Snake.Move();
 		getchar();
 	}
 
