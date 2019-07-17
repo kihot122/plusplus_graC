@@ -9,28 +9,28 @@ c_Snake::c_Snake(uint16_t color, uint16_t start_x, uint16_t start_y, uint16_t st
 
     switch (startowy_kierunek)
     {
-    case lewo:
+    case LEFT:
         for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x + i, start_y});
         }
         break;
     
-    case prawo:
+    case RIGHT:
         for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x - i, start_y});
         }
         break;
         
-    case gora:
+    case UP:
         for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x,start_y-i});
         }
         break;
 
-    case dol:
+    case DOWN:
         for (uint16_t i = 0; i < start_dlugosc; i++)
         {
             tail.push_back({start_x,start_y+i});
