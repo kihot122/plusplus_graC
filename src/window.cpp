@@ -59,7 +59,7 @@ void c_window::run() // <- function to printing out
 
 		}
 
-		window.draw();
+		//window.draw();
 
 		window.display();
 	}
