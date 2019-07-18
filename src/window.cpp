@@ -19,19 +19,19 @@ void c_window::draw(sf::RenderTarget& target, sf::RenderStates states) const
 			switch (map->GetCell(i, j)->GetID())
 			{
 			case CELL_EMPTY:
-
+				shape.setFillColor(sf::Color::White);
 				break;
 			case CELL_FRUIT:
-
+				shape.setFillColor(sf::Color::Red);
 				break;
 			case CELL_WALL:
-
+				shape.setFillColor(sf::Color::Black);
 				break;
-			case c_SNAKE_HEAD:
-
+			case CELL_SNAKE_HEAD:
+				shape.setFillColor(sf::Color::Blue);
 				break;
-			case c_SNAKE_TAIL:
-
+			case CELL_SNAKE_TAIL:
+				shape.setFillColor(sf::Color::Green);
 				break;
 			default:
 				std::cout << "no cell matching\n";
@@ -47,7 +47,7 @@ void c_window::run() // <- function to printing out
 
 	while (window.isOpen())
 	{
-		window.clear({ 0,0,0 });
+		window.clear(sf::Color::White);
 
 		sf::Event e;
 		while (window.pollEvent(e))
@@ -58,6 +58,8 @@ void c_window::run() // <- function to printing out
 			}
 
 		}
+
+		//window.draw();
 
 		window.display();
 	}

@@ -7,10 +7,10 @@ int main()
 {
 	c_Map map(800, 800);
 	c_window window(sf::Vector2f{ 800,800 }, &map);
-
+	c_Snake Snake(1, 5, 5, UP, &map, 3);
 	window.run();
 
-	c_Snake Snake(1, 5, 5, UP, &map, 3);
+	
 	while (true)
 	{
 		//Snake.Move();
