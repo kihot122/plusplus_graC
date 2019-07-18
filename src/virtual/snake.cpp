@@ -40,13 +40,13 @@ c_Snake::c_Snake(uint16_t color, uint16_t start_x, uint16_t start_y, uint16_t st
     }
 
     std::deque<position>::iterator x = tail.begin();
+    playground->SetCell(x[0].X,x[0].Y,new c_SnakeHead);
+    *x++;
     while (x!=tail.end())
     {
         playground->SetCell(x[0].X,x[0].Y,new c_SnakeTail);
         *x++; 
     } 
-
-    MakeHead();
 
 }
 
@@ -86,21 +86,18 @@ void c_Snake::Move(){
     switch ((playground->GetCell(next_Cell.X,next_Cell.Y))->GetID())
     {
     case CELL_EMPTY:
-        playground->SetCell(next_Cell.X,next_Cell.Y,new c_SnakeTail);
-        tail.push_front(next_Cell);
-        playground->SetCell(tail.back().X,tail.back().Y,new c_Empty());
-        tail.pop_back();
+        MoveHead(next_Cell);
+        MoveBack();
         break;
     
     case CELL_FRUIT:
-        playground->SetCell(next_Cell.X,next_Cell.Y,new c_SnakeTail);
-        tail.push_front(next_Cell);
+        MoveHead(next_Cell);
+        break;
 
     case CELL_WALL:
         alive = false;
+        break;
     }
-
-    MakeHead();
 
 }
 
@@ -127,25 +124,35 @@ void c_Snake::Move(uint16_t kierunek){
     switch ((playground->GetCell(next_Cell.X,next_Cell.Y))->GetID())
     {
     case CELL_EMPTY:
-        playground->SetCell(next_Cell.X,next_Cell.Y,new c_SnakeTail);
-        tail.push_front(next_Cell);
-        playground->SetCell(tail.back().X,tail.back().Y,new c_Empty());
-        tail.pop_back();
+        MoveHead(next_Cell);
+        MoveBack();
         break;
     
     case CELL_FRUIT:
-        playground->SetCell(next_Cell.X,next_Cell.Y,new c_SnakeTail);
-        tail.push_front(next_Cell);
+        MoveHead(next_Cell);
+        break;
 
     case CELL_WALL:
         alive = false;
+        break;
     }
-
-    MakeHead();
 
 }
 
-void c_Snake::MakeHead()
+void c_Snake::MoveHead(position next_Cell)
 {
-    playground->SetCell(tail[0].X,tail[0].Y,new c_SnakeHead);
+    tail.push_front(next_Cell);
+    playground->SetCell(next_Cell.X,next_Cell.Y,new c_SnakeHead);
+    playground->SetCell(tail[1].X,tail[1].Y,new c_SnakeTail);
+}
+
+void c_Snake::MoveBack()
+{
+    playground->SetCell(tail.back().X,tail.back().Y,new c_Empty());
+    tail.pop_back();
+}
+
+bool c_Snake::IsAlive()
+{
+    return alive;
 }
